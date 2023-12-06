@@ -132,6 +132,7 @@ const subRows = new Array(subRowsCount).fill(1).map(() => {
 });
 
 const rowsCount = 1000;
+// @ts-ignore
 const rows = new Array(rowsCount).fill(1).map(() => {
   const item: Person = {
     id: 1,
@@ -145,6 +146,7 @@ const rows = new Array(rowsCount).fill(1).map(() => {
 
     children:
       Math.random() > 0.5 ? (
+        // @ts-ignore
         <TableTS columns={columns2} data={subRows} height={490} />
       ) : null,
   };
@@ -152,11 +154,8 @@ const rows = new Array(rowsCount).fill(1).map(() => {
 });
 
 function App() {
-  return (
-    <>
-      <TableTS columns={columns} data={rows} />
-    </>
-  );
+  // @ts-ignore
+  return <TableTS columns={columns} data={rows} />;
 }
 
 export default App;

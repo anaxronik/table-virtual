@@ -18,8 +18,9 @@ export type TableTSProps = {
 const TableTS = (props: TableTSProps) => {
   const [data] = React.useState(props.data);
 
+  // @ts-ignore
   const table = useReactTable({
-    data,
+    data: data as any,
     columns: props.columns as any,
     getRowCanExpand: () => true,
     getCoreRowModel: getCoreRowModel(),
@@ -88,6 +89,7 @@ const TableTS = (props: TableTSProps) => {
             </tr>
           )}
           {virtualRows.map((virtualRow) => {
+            // @ts-ignore
             const row = rows[virtualRow.index] as Row<Person>;
             const children = row.original.children;
 
